@@ -1,0 +1,33 @@
+${ include('_partials/htmlhead.html') }
+${ include('_partials/header2.html') }
+${ include('_partials/title.html') }
+
+<main class="vl-sidebar-area sp2">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 mx-auto">
+        <div class="vl-event-content-area">
+
+            <div class="metadata mt-32">
+              <ul>
+
+                ${ data.date && `<li><time class="icon" datetime="${ tacs.fn.format.dateISO( data.date ) }"><img class="mt-4-" src="--ROOT--assets/img/icons/vl-calender-1.1.svg" alt="date"> ${ tacs.fn.format.dateHuman( data.date ) }</time></li>` }
+
+                ${ data?.tags && '<li>' }
+                ${ data?.tags?.map(t => `<a href="${ t.link }"><span class="icon"><img class="mt-4-" src="--ROOT--assets/img/icons/vl-tags.svg"></span> ${ t.tag }</a> `) }
+                ${ data?.tags && '</li>' }
+
+              </li>
+            </div>
+
+          ${ data.content }
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+${ include('_partials/footer.html') }
+
+${ include('_partials/htmlfoot.html') }

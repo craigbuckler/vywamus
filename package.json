@@ -1,0 +1,39 @@
+{
+  "name": "vywamus",
+  "version": "0.0.1",
+  "description": "Vywamus website",
+  "keywords": [
+    "vywamus",
+    "publican",
+    "static",
+    "site",
+    "generator",
+    "ssg"
+  ],
+  "homepage": "https://github.com/craigbuckler/vywamus#readme",
+  "bugs": {
+    "url": "https://github.com/craigbuckler/vywamus/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbuckler/vywamus.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Craig Buckler",
+  "type": "module",
+  "main": "publican.config.js",
+  "imports": {
+    "#lib/*": "./lib/*"
+  },
+  "scripts": {
+    "build": "node --env-file=.env.dev --env-file=.env.prod ./publican.config.js",
+    "start": "node --env-file=.env.dev ./publican.config.js"
+  },
+  "dependencies": {
+    "publican": "0.12.1",
+    "staticsearch": "0.7.0"
+  },
+  "devDependencies": {
+    "livelocalhost": "1.2.5"
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="${ tacs.config.language }" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>${ data.title || tacs.config.title }${ data?.pagination?.pageTotal > 1 ? ` (page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) })` : ''}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!--=====FAB ICON=======-->
+  <link rel="shortcut icon" href="--ROOT--assets/img/logo/fav-logo3v.png" type="image/x-icon">
+
+  <!--===== CSS =======-->
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/bootstrap.min.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/aos.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/fontawesome.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/magnific-popup.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/mobile.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/owlcarousel.min.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/swiper-bundle.min.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/sidebar.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/slick-slider.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/nice-select.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/plugins/lightbox.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/main.css">
+  <link rel="stylesheet" href="--ROOT--assets/css/custom.css">
+
+  <!--===== JS =======-->
+  <script type="module" src="--ROOT--search/staticsearch-component.js"></script>
+  <script src="--ROOT--assets/js/plugins/jquery-3.7.1.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/bootstrap.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/fontawesome.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/aos.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/counter.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/sidebar.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/magnific-popup.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/mobilemenu.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/owlcarousel.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/swiper-bundle.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/nice-select.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/jquery.counterup.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/waypoints.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/slick-slider.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/circle-progress.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/gsap.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/ScrollTrigger.min.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/Splitetext.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/lightbox.js" defer></script>
+  <script src="--ROOT--assets/js/plugins/circle-progress.min.js" defer></script>
+  <script src="--ROOT--assets/js/main.js" defer></script>
+
+  <!--===== META =======-->
+  <meta name="description" content="${ data.description || tacs.config.description }">
+  <meta name="author" content="${ data.author || tacs.config.author }">
+  <link rel="canonical" href="${ tacs.config.domain }${ data.link }">
+  <meta property="article:published_time" content="${ tacs.fn.format.dateISO( data.date ) }">
+  <meta property="article:modified_time" content="${ tacs.fn.format.dateISO( data.modified || data.date ) }">
+
+  <!--===== SEARCH =======-->
+  <meta name="robots" content="${ data.index ? 'index,follow' : 'noindex,follow' }">
+  <meta name="staticsearch" content="${ data.isDirIndex || data.isTagIndex || !data.index ? 'noindex' : 'index' }">
+
+</head>
+
+<body class="homepage1-body">
+
+  <!--===== PRELOADER STARTS =======-->
+  <div class="preloader">
+    <div class="loading-container">
+      <div class="loading"></div>
+      <div id="loading-icon"><img class="rounded-circle" src="--ROOT--assets/img/preloader/v-preloader-1.3.png" alt=""></div>
+    </div>
+  </div>
+  <!--===== PRELOADER ENDS =======-->

@@ -1,0 +1,30 @@
+:root {
+  color-scheme: light;
+}
+
+main {
+
+  h2, h3, p {
+    margin-block-start: 1em;
+  }
+
+}
+
+.metadata {
+
+  li {
+    display: inline-block;
+
+    &:not(:first-child) {
+      padding-inline-start: 0.6em;
+      margin-inline-start: 0.6em;
+      border-inline-start: 1px solid #999;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding-inline-end: 0.6em;
+  }
+
+}
