@@ -10,7 +10,7 @@ This codebase creates the website containing:
 1. Text and XML sitemaps
 1. Search facility
 
-[View the example site deployed from this repository...](https://vywamus.pages.dev/)
+[View the example site deployed from this repository...](https://vywamus.optimalworks.workers.dev/)
 
 
 ## Installation
