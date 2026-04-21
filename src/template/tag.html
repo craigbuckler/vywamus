@@ -8,13 +8,15 @@ ${ include('_partials/title.html') }
       <div class="col-xl-8 mx-auto">
         <div class="vl-event-content-area">
 
-          ${ include('_partials/meta.html') }
+          ${ data?.pagination &&
+            `<h1>${ tacs.fn.format.number( data.childPageTotal ) } ${ data.title }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
+          }
 
-          ${ data.content }
+          ${ include('_partials/list.html') }
 
-          ${ include('_partials/backnext.html') }
+          <h2>All post tags</h2>
 
-          ${ include('_partials/more.html') }
+          ${ tacs.fn.nav.tagList() }
 
         </div>
       </div>

@@ -4,7 +4,7 @@ description: An introduction to belief patterns.
 priority: 1.0
 index: monthly
 tags: belief, patterns
-hero: cta/vl-cta-1.1b.jpg
+hero: testimonial/testimonial-thumb-bg-3.3s.jpg
 ---
 
 

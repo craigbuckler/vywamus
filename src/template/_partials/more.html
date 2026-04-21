@@ -1,0 +1,12 @@
+<h2>More from the Vywamus Repository</h2>
+
+<p>Recent repository articles&hellip;</p>
+
+<nav class="pagelist">
+  ${
+    tacs.dir.get('repository')
+      .filter(p => p.slug !== data.slug)
+      .filter((p, i) => i < 2)
+      .map(p => tacs.fn.format.articleLink(p, 'h3') )
+  }
+</nav>

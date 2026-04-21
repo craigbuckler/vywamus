@@ -7,8 +7,6 @@ import * as fnNav from '#lib/nav.js';
 import * as fnFormat from '#lib/format.js';
 import * as fnHooks from './lib/hooks.js';
 
-// import * as fnHooks from './lib/hooks.js';
-
 const
   publican = new Publican(),
   isDev = (env('NODE_ENV') === 'development');
@@ -23,14 +21,11 @@ publican.config.root = env('BUILD_ROOT', '/');
 
 // HTML templates
 publican.config.defaultHTMLTemplate = env('TEMPLATE_DEFAULT', 'default.html');
-// publican.config.dirPages.template = env('TEMPLATE_LIST', 'list.html');
-// publican.config.tagPages.template = env('TEMPLATE_TAG', 'tag.html');
+publican.config.dirPages.template = env('TEMPLATE_LIST', 'list.html');
+publican.config.tagPages.template = env('TEMPLATE_TAG', 'tag.html');
 
 // slug replacement - remove YYYY-MM-DD_
 publican.config.slugReplace.set(/\d{4}-\d{2}-\d{2}_/g, '');
-
-// slug replacement - removes NN_ from slug
-// publican.config.slugReplace.set(/\d+_/g, '');
 
 // disable syntax highlighting
 publican.config.markdownOptions.prism = false;
@@ -39,10 +34,10 @@ publican.config.markdownOptions.prism = false;
 publican.config.headingAnchor = false;
 
 // sorting and pagination
-publican.config.dirPages.size = 24;
+publican.config.dirPages.size = 48;
 publican.config.dirPages.sortBy = 'filename';
 publican.config.dirPages.sortOrder = 1;
-publican.config.dirPages.dir.news = {
+publican.config.dirPages.dir.repository = {
   sortBy: 'date',
   sortOrder: -1
 };
@@ -54,26 +49,8 @@ publican.config.passThrough.add({ from: './src/assets', to: './assets' });
 // determine post date from filename
 publican.config.processContent.add( fnHooks.processFileDate );
 
-// // processContent hook: custom {{ filename }} code tabs
-// publican.config.processContent.add( fnHooks.contentFilename );
-
-// // processContent hook: replace ::: tags
-// publican.config.processContent.add( fnHooks.htmlBlocks );
-
-// // processRenderStart hook: generate site inline scripts and CSP hashes
-// publican.config.processRenderStart.add( fnHooks.renderstartInlineScripts );
-
-// // processRenderStart hook: change title, descriptions, etc.
-// publican.config.processRenderStart.add( fnHooks.renderstartData );
-
-// // processRenderStart hook: create tacs.tagScore Map
-// publican.config.processRenderStart.add( fnHooks.renderstartTagScore );
-
-// // processPreRender hook: determine related posts
-// publican.config.processPreRender.add( fnHooks.prerenderRelated );
-
-// // processPreRender hook: generate page inline scripts and CSP hashes
-// publican.config.processPreRender.add( fnHooks.prerenderInlineScripts );
+// processRenderStart hook: change title, descriptions, etc.
+publican.config.processRenderStart.add( fnHooks.renderstartData );
 
 // processPostRender hook: add <meta> tags
 publican.config.processPostRender.add( fnHooks.postrenderMeta );
@@ -132,7 +109,8 @@ staticsearch.searchDir = publican.config.dir.build + 'search/';
 staticsearch.domain = tacs.config.domain;
 staticsearch.pageDOMSelectors = 'main,#mission,#statistics';
 staticsearch.pageDOMExclude = 'header,nav,menu,footer';
-staticsearch.stopWords = '';
+staticsearch.stopWordsDefault = false;
+staticsearch.stopWords = 'a,again,am,an,and,any,are,article,as,at,be,because,both,by,but,can,did,do,does,doing,few,for,from,had,has,have,here,her,him,his,i,if,in,into,it,its,just,least,less,me,more,most,my,of,off,on,or,other,our,over,post,repository,some,she,should,such,that,the,their,then,there,these,this,those,to,under,very,was,were,what,when,which,with,why,your';
 await staticsearch.index();
 
 // development server

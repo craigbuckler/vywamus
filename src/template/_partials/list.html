@@ -1,0 +1,9 @@
+${ data?.pagination?.page?.length && `
+  <nav class="pagelist">
+    ${ data?.pagination?.page
+      .filter(p => !data.slug.includes('repository') || p.slug.replace(/[^/]/g, '').length === 2 )
+      .map(p => tacs.fn.format.articleLink(p, 'h2')).join('') }
+  </nav>
+` }
+
+${ tacs.fn.nav.pagination( data.pagination ) }

@@ -8,13 +8,13 @@ ${ include('_partials/title.html') }
       <div class="col-xl-8 mx-auto">
         <div class="vl-event-content-area">
 
-          ${ include('_partials/meta.html') }
+          ${ data?.pagination &&
+            `<h1>${ data.title }${ data.pagination.pageTotal > 1 ? `, page ${ tacs.fn.format.number( data.pagination.pageCurrent1 ) } of ${ tacs.fn.format.number( data.pagination.pageTotal ) }` : ''}</h1>`
+          }
 
           ${ data.content }
 
-          ${ include('_partials/backnext.html') }
-
-          ${ include('_partials/more.html') }
+          ${ include('_partials/list.html') }
 
         </div>
       </div>

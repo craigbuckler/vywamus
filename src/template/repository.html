@@ -8,13 +8,16 @@ ${ include('_partials/title.html') }
       <div class="col-xl-8 mx-auto">
         <div class="vl-event-content-area">
 
-          ${ include('_partials/meta.html') }
-
           ${ data.content }
 
-          ${ include('_partials/backnext.html') }
-
-          ${ include('_partials/more.html') }
+          <nav class="pagelist">
+            ${
+              tacs.dir.get('repository')
+                .filter(p => p.link.match(new RegExp(`${ data.link.replaceAll('/', '\/') }.+?\/`)))
+                .map(p => tacs.fn.format.articleLink(p, 'h2') )
+                .join('')
+            }
+          </nav>
 
         </div>
       </div>

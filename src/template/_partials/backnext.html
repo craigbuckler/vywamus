@@ -1,0 +1,7 @@
+${ data?.postnext || data?.postback ? `
+  <nav class="backnext"><ul>
+    ${ data.postback?.title ? `<li class="next"><a href="${ data.postback.link }"><span>${ tacs.fn.format.dateHuman( data.postback.date ) } &rarr;</span> <strong>${ data.postback.title }</strong></a></li>` : '' }
+    ${ data.postnext?.title && data.postnext?.slug.replace(/[^/]/g, '').length !== 2 ? `<li class="back"><a href="${ data.postnext.link }"><span>&larr; ${ tacs.fn.format.dateHuman( data.postnext.date ) }</span> <strong>${ data.postnext.title }</strong></a></li>` : '' }
+  </ul></nav>
+  ` : ''
+}
